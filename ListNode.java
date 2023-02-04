@@ -12,6 +12,7 @@ public class ListNode <T> {
     public void setValue(T value) {
         this.value = value;
     }
+
     public void setNext(ListNode next) {
         this.next = next;
     }

@@ -31,6 +31,7 @@ public class LinkedList <T> {
 
         String output;
 
+        // Go to last element
         while (currentNode.getNext().getNext() != null) {
             currentNode = currentNode.getNext();
         }
@@ -47,6 +48,7 @@ public class LinkedList <T> {
 
         int count = 0;
 
+        // Go to last element
         while (currentNode != null) {
             count++;
             currentNode = currentNode.getNext();
@@ -59,6 +61,7 @@ public class LinkedList <T> {
         ListNode currentNode = head;
         int index = 0;
 
+        // Go to last element
         while (currentNode != null) {
             if (currentNode.getValue().equals(value))
                 return index;
@@ -75,6 +78,7 @@ public class LinkedList <T> {
 
         int index = 0;
 
+        // Go to last element
         while (currentNode != null) {
             if (index == indexElement)
                 return currentNode.getValue();
@@ -92,6 +96,7 @@ public class LinkedList <T> {
 
         int index = 0;
 
+        // Go to last element
         while (currentNode != null) {
             if (index == indexOfElement) {
                 currentNode.setValue(value);
@@ -113,9 +118,11 @@ public class LinkedList <T> {
 
         String output = "";
 
+        // If list is empty
         if (currentNode == null)
             System.out.println("List is empty");
 
+        // Go to last element
         while (currentNode != null) {
             output = output.concat(currentNode.getValue().toString());
 
