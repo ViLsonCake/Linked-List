@@ -87,7 +87,6 @@ public class LinkedList <T> {
             index++;
         }
 
-        //return "Element not found!";
         return null;
     }
 
@@ -111,6 +110,23 @@ public class LinkedList <T> {
 
     public void clear() {
         head = null;
+    }
+
+    public LinkedList<Integer> sorted(LinkedList<Integer> linkedList) {
+
+        // Bubble sort realization
+        for (int i = 0; i < linkedList.length(); i++) {
+            for (int j = 0; j < linkedList.length() - i - 1; j++) {
+                if (linkedList.get(j) > linkedList.get(j + 1)) {
+                    // Reverse values
+                    int value = linkedList.get(j);  // Value buffer
+                    linkedList.replace(j, linkedList.get(j + 1));
+                    linkedList.replace(j + 1, value);
+                }
+            }
+        }
+
+        return linkedList;
     }
 
     public void showList() {
