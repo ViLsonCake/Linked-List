@@ -57,22 +57,6 @@ public class LinkedList <T> {
         return count;
     }
 
-    public int findElement(String value) {
-        ListNode currentNode = head;
-        int index = 0;
-
-        // Go to last element
-        while (currentNode != null) {
-            if (currentNode.getValue().equals(value))
-                return index;
-
-            currentNode = currentNode.getNext();
-            index++;
-        }
-
-        return -1;
-    }
-
     public T get(int indexElement) {
         ListNode<T> currentNode = head;
 
@@ -112,19 +96,29 @@ public class LinkedList <T> {
         head = null;
     }
 
-    public LinkedList<Integer> sorted(LinkedList<Integer> linkedList) {
+    public LinkedList<Integer> sorted(LinkedList<Integer> linkedList, boolean reversed) {
 
         // Bubble sort realization
         for (int i = 0; i < linkedList.length(); i++) {
             for (int j = 0; j < linkedList.length() - i - 1; j++) {
-                if (linkedList.get(j) > linkedList.get(j + 1)) {
-                    // Reverse values
-                    int value = linkedList.get(j);  // Value buffer
-                    linkedList.replace(j, linkedList.get(j + 1));
-                    linkedList.replace(j + 1, value);
+                if (!(reversed)) {
+                    if (linkedList.get(j) > linkedList.get(j + 1)) {
+                        // Reverse values
+                        int value = linkedList.get(j);  // Value buffer
+                        linkedList.replace(j, linkedList.get(j + 1));
+                        linkedList.replace(j + 1, value);
+                    }
+                } else {
+                    if (linkedList.get(j) < linkedList.get(j + 1)) {
+                        // Reverse values
+                        int value = linkedList.get(j);  // Value buffer
+                        linkedList.replace(j, linkedList.get(j + 1));
+                        linkedList.replace(j + 1, value);
+                    }
                 }
             }
         }
+
 
         return linkedList;
     }
