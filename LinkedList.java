@@ -96,21 +96,21 @@ public class LinkedList <T> {
         head = null;
     }
 
-    public LinkedList<Integer> sorted(LinkedList<Integer> linkedList, boolean reversed) {
+    public LinkedList<Integer> BubbleSorted(LinkedList<Integer> linkedList, boolean reversed) {
 
         // Bubble sort realization
         for (int i = 0; i < linkedList.length(); i++) {
             for (int j = 0; j < linkedList.length() - i - 1; j++) {
                 if (!(reversed)) {
                     if (linkedList.get(j) > linkedList.get(j + 1)) {
-                        // Reverse values
+                        // Swap values
                         int value = linkedList.get(j);  // Value buffer
                         linkedList.replace(j, linkedList.get(j + 1));
                         linkedList.replace(j + 1, value);
                     }
                 } else {
                     if (linkedList.get(j) < linkedList.get(j + 1)) {
-                        // Reverse values
+                        // Swap values
                         int value = linkedList.get(j);  // Value buffer
                         linkedList.replace(j, linkedList.get(j + 1));
                         linkedList.replace(j + 1, value);
@@ -120,6 +120,35 @@ public class LinkedList <T> {
         }
 
 
+        return linkedList;
+    }
+
+    public LinkedList<Integer> CombSorted(LinkedList<Integer> linkedList, boolean reversed) {
+        // Comb sort realization
+        final double factor = 1.247;
+
+        double step = linkedList.length() - 1;
+
+        while (step >= 1) {
+            for (int i = 0; i + step < linkedList.length(); i++) {
+                if (!(reversed)) {
+                    if (linkedList.get(i) > linkedList.get((int) (i + step))) {
+                        // Swap values
+                        int value = linkedList.get(i);  // Value buffer
+                        linkedList.replace(i, linkedList.get((int) (i + step)));
+                        linkedList.replace((int) (i + step), value);
+                    }
+                } else {
+                    if (linkedList.get(i) < linkedList.get((int) (i + step))) {
+                        // Swap values
+                        int value = linkedList.get(i);  // Value buffer
+                        linkedList.replace(i, linkedList.get((int) (i + step)));
+                        linkedList.replace((int) (i + step), value);
+                    }
+                }
+            }
+            step /= factor;
+        }
         return linkedList;
     }
 
